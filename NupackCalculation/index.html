@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+Applicant : Elva(Konghoon) Chung
+Job Position : Link Apprenticeship for Woman-identified Develpoers
+Status : A graduate-to-be Computer Programmer at Sheridan College 
+File name : NupackCalculation
+Documentation: This application will perform a markup price based on cost, the number of emploee and selected item. It will be an estimate of how much it will cost.  
+-->
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> RePacking Calculation System </title>
+	<style>	
+		/* change the h1 color and size*/
+		h1{
+			color:purple;
+			font-size: 30px;					
+		}
+	</style>
+</head>
+
+<body>
+<h1>RePacking Calculation System</h1>
+<form id='totalPrice'>
+	<fieldset>
+		<legend> MarkUp Price </legend>
+		Input cost: <input type="text" name="cost" id="cost" >
+		<br><br>
+		Employee Count: <input type="text" name="employeeNum" id="employeeNum" ><br><br>
+		<select id='item'>
+			<option value='0'>Select Item</option>
+            <option value='1'>Pharmaceuticals</option>
+            <option value='2'>Food</option>
+            <option value='3'>Electronics</option>
+            <option value='4'>Others</option>
+        </select>            
+		<br>			
+		
+	</fieldset>
+	<!-- button click event -->
+	<input type='button' onClick="Calculate();" value='Calculate'>
+	<input type='reset' value='Reset'>	
+</form>
+
+<script>
+	// decalre variables
+	var FLAT_RATE = 0.05;	
+	var flatMarkUp = 0;
+	var basePrice = 0;
+	var employeeNum = 0;
+	var rate;
+
+	// perform based on user input
+	function Calculate() {
+
+		// set the values from the input
+		var cost = parseFloat( document.querySelector('#cost').value );			
+        var employeeNum = parseFloat( document.querySelector('#employeeNum').value );           
+        var e = document.querySelector('#item');
+        var item = e.options[e.selectedIndex].value;
+
+        // validate input and calculate markup price
+        try{        	
+        	if(cost < 0 || employeeNum < 0 ) throw "Input must be > 0";
+        	if( item == 0) throw "Please select the item";   	
+        	  	
+        	// select item     	
+	        if( item == 1)
+	        	rate = 0.075;
+	        else if(item == 2)
+	        	rate = 0.13;
+	        else if(item == 3)
+	        	rate = 0.02;
+	        else
+	        	rate = 0;  
+
+	        flatMarkUp = cost * FLAT_RATE;     
+	        basePrice = cost + flatMarkUp;            
+        	markupPrice = (basePrice + basePrice*(employeeNum*0.012) + basePrice*rate).toFixed(2);  
+        	alert("Total Price: $ " + markupPrice)   	         
+	    }  
+
+	    // error message
+	    catch(err){	    	
+	    	alert(err);	    	
+	    }       
+	}	
+</script>
+
+</body>
+</html>
