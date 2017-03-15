@@ -1,2 +1,4 @@
-# Repository1
-Exercise for opentutorials_git
+# First Repository
+
+This is my first repository. I will upload my project soon. 
+
