@@ -1,6 +1,6 @@
 # NuPack markup calculation
 
-NuPack is a famouse packaging service company. When the client asks to repackage existing products, it needs to quick provide  estimate of the cost. This application is able to calculate markup price. Different markups will be calculated by the conditions.
+NuPack is a famouse packaging service company. When the client asks to repackage existing products, it needs to quickly provide  estimate of the cost. This application is able to calculate markup price. Different markups will be calculated by the conditions.
 1. Basic markup : there is a flat markup on all jobs of 5%.
 2. It will be added 1.2% by each person that needs to work on the job.
 3. Additional markup 
